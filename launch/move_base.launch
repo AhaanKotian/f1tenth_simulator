@@ -1,0 +1,28 @@
+<launch>
+
+   <master auto="start"/>
+ <!-- Run the map server --> 
+   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find my_map_package)/my_map.pgm my_map_resolution"/> -->
+   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find f1tenth_simulator)/maps/levine.yaml"/> -->
+ 
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+    <!-- <param name = "base_local_planner" value = "teb_local_planner/TebLocalPlannerROS"/> -->
+    <!-- <param name = "base_local_planner" value = "mpc_local_planner/MpcLocalPlannerROS"/> -->
+    <!-- <param name = "base_global_planner" value = "djikstras_global_planner/Djikstras"/> -->
+    <!-- <param name = "base_global_planner" value = "rrtstar_global_planner/Rrtstar"/> -->
+    <!-- <param name = "base_global_planner" value = "rrt_global_planner/Rrt"/> -->
+    <param name = "base_global_planner" value = "Astar_global_planner/Astar"/>
+    <!-- <param name = "base_global_planner" value = "carrot_planner/CarrotPlanner"/> -->
+    <rosparam file="$(find f1tenth_simulator)/common_costmap_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find f1tenth_simulator)/common_costmap_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find f1tenth_simulator)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find f1tenth_simulator)/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find f1tenth_simulator)/base_local_planner_params.yaml" command="load" />
+    <!-- <rosparam file="$(find f1tenth_simulator)/teb_local_planner_params.yaml" command="load" /> -->
+
+
+ </node>
+
+</launch> 
