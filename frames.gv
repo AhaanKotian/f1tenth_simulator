@@ -1,0 +1,17 @@
+digraph G {
+"front_left_hinge" -> "front_left_wheel"[label=" Broadcaster: /f1tenth_simulator\nAverage rate: 980.58\nBuffer length: 4.997\nMost recent transform: 1695826504.351\nOldest transform: 1695826499.354\n"];
+"base_link" -> "front_left_hinge"[label=" Broadcaster: /racecar/robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"front_right_hinge" -> "front_right_wheel"[label=" Broadcaster: /f1tenth_simulator\nAverage rate: 980.58\nBuffer length: 4.997\nMost recent transform: 1695826504.351\nOldest transform: 1695826499.354\n"];
+"base_link" -> "front_right_hinge"[label=" Broadcaster: /racecar/robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "back_left_wheel"[label=" Broadcaster: /racecar/robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_link"[label=" Broadcaster: /ekf_se\nAverage rate: 30.193\nBuffer length: 4.968\nMost recent transform: 1695826504.313\nOldest transform: 1695826499.345\n"];
+"base_link" -> "back_right_wheel"[label=" Broadcaster: /racecar/robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "laser_model"[label=" Broadcaster: /racecar/robot_state_publisher\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "laser"[label=" Broadcaster: /f1tenth_simulator\nAverage rate: 980.575\nBuffer length: 4.996\nMost recent transform: 1695826504.35\nOldest transform: 1695826499.354\n"];
+"map" -> "odom"[label=" Broadcaster: /hector_mapping\nAverage rate: 13.174\nBuffer length: 4.858\nMost recent transform: 1695826504.177\nOldest transform: 1695826499.319\n"];
+"map" -> "scanmatcher_frame"[label=" Broadcaster: /hector_mapping\nAverage rate: 13.174\nBuffer length: 4.858\nMost recent transform: 1695826504.177\nOldest transform: 1695826499.319\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1695826504.36057"[ shape=plaintext ] ;
+}->"map";
+}
